@@ -2,6 +2,7 @@ package kru.poompunk.wannachat.gamepaperrock;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -59,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeplay(int intNumber) {
 
-    }
+        Log.d("test", "ค่าที่รับได้ = " + intNumber);
+
+    }// changplay
 
     private void bindWidget() {
         paperImageView = (ImageView) findViewById(R.id.imvPaper);
