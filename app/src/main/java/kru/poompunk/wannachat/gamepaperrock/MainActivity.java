@@ -2,6 +2,7 @@ package kru.poompunk.wannachat.gamepaperrock;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +20,46 @@ public class MainActivity extends AppCompatActivity {
 
         // bind widget
         bindWidget();
-
+        //paper controller
+        paperController();
+        //rock controller
+        rockController();
+        //scissors controller
+        scissorsController();
     } // main method
+
+    private void scissorsController() {
+        scissorsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeplay(1);
+            }
+        });
+    }
+
+    private void rockController() {
+        rockImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeplay(2);
+            }
+        });
+    }
+
+    private void paperController() {
+
+        paperImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeplay(3);
+            }
+        });
+
+    }//paperController
+
+    private void changeplay(int intNumber) {
+
+    }
 
     private void bindWidget() {
         paperImageView = (ImageView) findViewById(R.id.imvPaper);
