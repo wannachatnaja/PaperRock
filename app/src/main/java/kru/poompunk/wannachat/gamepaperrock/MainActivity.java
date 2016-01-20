@@ -1,5 +1,6 @@
 package kru.poompunk.wannachat.gamepaperrock;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,6 +62,25 @@ public class MainActivity extends AppCompatActivity {
     private void changeplay(int intNumber) {
 
         Log.d("test", "ค่าที่รับได้ = " + intNumber);
+        int intSound = R.raw.crickets;
+
+        switch (intNumber) {
+            case 1:
+                playImageView.setImageResource(R.drawable.scissors2);
+                intSound = R.raw.crickets;
+                break;
+            case 2:
+                playImageView.setImageResource(R.drawable.rock3);
+                intSound = R.raw.dog;
+                break;
+            case 3:
+                playImageView.setImageResource(R.drawable.paper1);
+                intSound = R.raw.bird;
+                break;
+        }// switch
+        MediaPlayer imageMediaPlayer = MediaPlayer.create(getBaseContext(), intSound);
+        imageMediaPlayer.start();
+
 
     }// changplay
 
