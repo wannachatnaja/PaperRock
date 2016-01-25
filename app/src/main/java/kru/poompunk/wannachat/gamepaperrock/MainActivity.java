@@ -67,15 +67,15 @@ public class MainActivity extends AppCompatActivity {
         switch (intNumber) {
             case 1:
                 playImageView.setImageResource(R.drawable.scissors2);
-                intSound = R.raw.crickets;
+                intSound = R.raw.scissors;
                 break;
             case 2:
                 playImageView.setImageResource(R.drawable.rock3);
-                intSound = R.raw.dog;
+                intSound = R.raw.rock;
                 break;
             case 3:
                 playImageView.setImageResource(R.drawable.paper1);
-                intSound = R.raw.bird;
+                intSound = R.raw.paper;
                 break;
         }// switch
         MediaPlayer imageMediaPlayer = MediaPlayer.create(getBaseContext(), intSound);
