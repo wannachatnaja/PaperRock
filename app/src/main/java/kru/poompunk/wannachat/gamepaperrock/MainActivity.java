@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     // Explicit ประกาศตัวแปร
@@ -54,15 +56,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(3);
+                myRandomPicture();
             }
         });
 
     }//paperController
 
+    private void myRandomPicture() {
+        int myRandom = 0;
+        Random objRandom = new Random();
+        myRandom = objRandom.nextInt(3) + 1;
+        Log.d("Ran", "myRandom ==>" + myRandom);
+
+    }// MRP
+
     private void changeplay(int intNumber) {
 
         Log.d("test", "ค่าที่รับได้ = " + intNumber);
-        int intSound = R.raw.crickets;
+        int intSound = R.raw.cow;
 
         switch (intNumber) {
             case 1:
