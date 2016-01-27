@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(1);
-                myRandomPicture();
+                myRandomPicture(1);
+
             }
         });
     }
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(2);
-                myRandomPicture();
+                myRandomPicture(2);
             }
         });
     }
@@ -58,21 +60,73 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(3);
-                myRandomPicture();
+                myRandomPicture(3);
             }
         });
 
     }//paperController
 
-    private void myRandomPicture() {
+    private void myRandomPicture(int intUser) {
         int myRandom = 0;
         Random objRandom = new Random();
         myRandom = objRandom.nextInt(3) + 1;
         Log.d("Ran", "myRandom ==>" + myRandom);
 
         androidChange(myRandom);
+        checkScore(intUser, myRandom);
 
     }// MRP
+
+    private void checkScore(int intUser, int myRandom) {
+        String strwin = "ว้าววว ชนะแว้วววว";
+        String strlost = "กากเกินไปป่ะ5555+";
+        String strdrew = "ชาตินี้ชนะมั้ยวะ";
+        String strshow = null;
+
+        //1=กรรไกร/2=ฆ้อน/3=กระดาษ
+        switch (intUser) {
+            case 1: //ไกร
+                switch (myRandom) {
+                    case 1:
+                        strshow = strdrew;
+                        break;
+                    case 2:
+                        strshow = strlost;
+                        break;
+                    case 3:
+                        strshow = strwin;
+                        break;
+                }
+                break;
+            case 2: //ฆ้อน
+                switch (myRandom) {
+                    case 1:
+                        strshow = strwin;
+                        break;
+                    case 2:
+                        strshow = strdrew;
+                        break;
+                    case 3:
+                        strshow = strlost;
+                        break;
+                }
+                break;
+            case 3: //ดาษ
+                switch (myRandom) {
+                    case 1:
+                        strshow = strlost;
+                        break;
+                    case 2:
+                        strshow = strwin;
+                        break;
+                    case 3:
+                        strshow = strdrew;
+                        break;
+                }
+                break;
+        }
+        showTextView.setText(strshow);
+    }// CS
 
     private void androidChange(int myRandom) {
         int[] intSource = new int[4];
