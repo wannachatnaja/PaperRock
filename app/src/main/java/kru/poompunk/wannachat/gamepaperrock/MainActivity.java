@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(1);
+                myRandomPicture();
             }
         });
     }
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeplay(2);
+                myRandomPicture();
             }
         });
     }
@@ -68,7 +70,19 @@ public class MainActivity extends AppCompatActivity {
         myRandom = objRandom.nextInt(3) + 1;
         Log.d("Ran", "myRandom ==>" + myRandom);
 
+        androidChange(myRandom);
+
     }// MRP
+
+    private void androidChange(int myRandom) {
+        int[] intSource = new int[4];
+        intSource[0] = 0;
+        intSource[1] = R.drawable.scissors2;
+        intSource[2] = R.drawable.rock3;
+        intSource[3] = R.drawable.paper1;
+
+        androidImageView.setImageResource(intSource[myRandom]);
+    } // androidchange
 
     private void changeplay(int intNumber) {
 
