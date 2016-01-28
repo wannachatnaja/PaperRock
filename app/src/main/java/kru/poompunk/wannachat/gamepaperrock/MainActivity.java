@@ -80,8 +80,13 @@ public class MainActivity extends AppCompatActivity {
     private void checkScore(int intUser, int myRandom) {
         String strwin = "ว้าววว ชนะแว้วววว";
         String strlost = "กากเกินไปป่ะ5555+";
-        String strdrew = "ชาตินี้ชนะมั้ยวะ";
+        String strdrew = "ชาตินี้จะชนะมั้ยวะ";
         String strshow = null;
+        int[] intsound = new int[3];
+        intsound[0] = R.raw.win;
+        intsound[1] = R.raw.lose;
+        intsound[2] = R.raw.cow;
+        int showsound = R.raw.cow;
 
         //1=กรรไกร/2=ฆ้อน/3=กระดาษ
         switch (intUser) {
@@ -89,12 +94,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (myRandom) {
                     case 1:
                         strshow = strdrew;
+                        showsound = R.raw.effect_btn_long;
                         break;
                     case 2:
                         strshow = strlost;
+                        showsound = R.raw.lose;
                         break;
                     case 3:
                         strshow = strwin;
+                        showsound = R.raw.win;
                         break;
                 }
                 break;
@@ -102,12 +110,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (myRandom) {
                     case 1:
                         strshow = strwin;
+                        showsound = R.raw.win;
                         break;
                     case 2:
                         strshow = strdrew;
+                        showsound = R.raw.effect_btn_long;
                         break;
                     case 3:
                         strshow = strlost;
+                        showsound = R.raw.lose;
                         break;
                 }
                 break;
@@ -115,17 +126,22 @@ public class MainActivity extends AppCompatActivity {
                 switch (myRandom) {
                     case 1:
                         strshow = strlost;
+                        showsound = R.raw.lose;
                         break;
                     case 2:
                         strshow = strwin;
+                        showsound = R.raw.win;
                         break;
                     case 3:
                         strshow = strdrew;
+                        showsound = R.raw.effect_btn_long;
                         break;
                 }
                 break;
         }
         showTextView.setText(strshow);
+        MediaPlayer cakeMediaPlayer = MediaPlayer.create(getBaseContext(), showsound);
+        cakeMediaPlayer.start();
     }// CS
 
     private void androidChange(int myRandom) {
